@@ -1,26 +1,5 @@
 #include "inverted_index.h"
 
-// void print_header(const std::vector<std::string>& filenames) {
-//     std::cout << std::setw(30) << "";
-//     for (const std::string& document : filenames) {
-//         std::cout << std::setw(16) << document;
-//     }
-//     std::cout << "\n-----------------------------------------------------------------------------------------------------\n";
-// }
-
-// void print_row(const std::string& term, const std::vector<std::string>& documents, const std::unordered_set<std::string>& doc_IDs, std::vector<std::vector<int>>& matrix, int term_index) {
-//     std::cout << std::setw(30) << term;
-//     for (int doc_index = 0; doc_index < documents.size(); doc_index++) {
-//         if (doc_IDs.count(documents[doc_index]) > 0) {
-//             matrix[term_index][doc_index] = 1;
-//             std::cout << std::setw(16) << "1";
-//         } else {
-//             std::cout << std::setw(16) << "0";
-//         }
-//     }
-//     std::cout << std::endl;
-// }
-
 void print_header(const std::vector<std::string>& filenames) {
     std::cout << std::setw(40) << " ";
     for (const std::string& document : filenames) {

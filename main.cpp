@@ -18,24 +18,27 @@
 
 int main() {
 
-    // std::vector<std::string> seed_urls = {
-    //     "https://www.armstat.am",
-    //     "https://www.aua.am",
-    //     "https://www.armenianow.com",
-    //     "https://www.armeniabusiness.am",
-    //     "https://www.armenianheritage.org",
-    //     "https://www.moh.am",
-    //     "https://www.crrc.am",
-    //     "https://www.data.gov.am",
-    //     "https://www.meteo.am",
-    //     "https://www.armstat.am/en/population"
-    // };
+    std::vector<std::string> seed_urls = {
+        "https://www.armstat.am",
+        "https://www.aua.am",
+        "https://www.armenianow.com",
+        "https://www.armeniabusiness.am",
+        "https://www.armenianheritage.org",
+        "https://www.moh.am",
+        "https://www.crrc.am",
+        "https://www.data.gov.am",
+        "https://www.meteo.am",
+        "https://www.armstat.am/en/population",
+        "https://www.picsartacademy.am"
+    };
 
-    std::string start_url = clean_and_organize_URL();
+    // std::string start_url = clean_and_organize_URL();
 
-    web_crawler crawler(start_url, 1);
-    crawler.start_crawling();
-
+    for(int i = 0; i < seed_urls.size(); ++i) {
+        web_crawler crawler(seed_urls[i], i + 1);
+        crawler.start_crawling();
+    }
+    
     const std::string directory_path = std::filesystem::current_path();
     const std::string file_extension = ".txt";
 
