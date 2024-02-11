@@ -118,7 +118,6 @@ int main() {
     std::unordered_set<std::string> file_id = inverted_index[searching_key];
 
     for(auto crawler : crawlers) {
-        std::cout << crawler.first << " : ";
         for(auto user : crawler.second) {
             std::cout << "\033]8;;" << user << "\a" << user << "\033]8;;\a" << std::endl;
         }
