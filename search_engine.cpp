@@ -2,7 +2,7 @@
 
 std::mutex str_mutex;
 
-std::string clean_and_organize_URL() {
+std::string obtaining_the_desired_word() {
     httplib::Server svr;
 
     std::string str = "";
@@ -49,10 +49,7 @@ std::string clean_and_organize_URL() {
     // Lock the mutex before accessing str in the main thread
     std::lock_guard<std::mutex> lock(str_mutex);
 
-    std::string start_url = "https://";
-    start_url += str;
-
-    return start_url;
+    return str;
 }
 
 void delete_files(const std::string& directory_path, const std::string& file_extension) {

@@ -23,6 +23,9 @@ public:
 
     void start_crawling();
 
+    const std::set<std::string>& get_visited_users() const;
+    int get_id() const;
+
 private:
     static size_t write_callback(void* contents, size_t size, size_t nmemb, std::string* output);
     void write_content_to_file(const std::string& filename, const std::string& content);
@@ -31,7 +34,7 @@ private:
     void crawl(const std::string& api_url, int depth, int& crawl_count);
     bool is_same_domain(const std::string& url1, const std::string& url2);
 
-    std::string get_text_content(GumboNode* node);
+    std::string get_text_content(GumboNode* node);    
 };
 
 #endif // WEB_CRAWLER_H

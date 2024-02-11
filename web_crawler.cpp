@@ -72,10 +72,10 @@ void web_crawler::collect_user_data(const std::string& api_url) {
         CURLcode res = curl_easy_perform(curl);
 
         if (res == CURLE_OK) {
-            std::cout << "\033]8;;" << api_url << "\a" << api_url << "\033]8;;\a" << std::endl;
+            // std::cout << "\033]8;;" << api_url << "\a" << api_url << "\033]8;;\a" << std::endl;
 
             visited_users.insert(api_url);
-
+            
             std::set<std::string> links = extract_links(response_body);
 
             for (const std::string& link : links) {
@@ -144,7 +144,13 @@ void web_crawler::crawl(const std::string& api_url, int depth, int& crawl_count)
     }
 }
 
+const std::set<std::string>& web_crawler::get_visited_users() const {
+    return visited_users;
+}
 
+int web_crawler::get_id() const {
+    return ID;
+}
 
 std::string web_crawler::get_text_content(GumboNode* node) {
     if (node->type == GUMBO_NODE_TEXT) {

@@ -9,7 +9,7 @@ void print_header(const std::vector<std::string>& filenames) {
 }
 
 void print_row(const std::string& term, const std::vector<std::string>& documents, const std::unordered_set<std::string>& doc_IDs, std::vector<std::vector<int>>& matrix, int term_index) {
-    std::cout << std::setw(35) << std::left << term;
+    std::cout << std::setw(40) << std::left << term;
     for (int doc_index = 0; doc_index < documents.size(); doc_index++) {
         if (doc_IDs.count(documents[doc_index]) > 0) {
             matrix[term_index][doc_index] = 1;
