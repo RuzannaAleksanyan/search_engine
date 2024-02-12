@@ -21,7 +21,6 @@ void print_row(const std::string& term, const std::vector<std::string>& document
     std::cout << std::endl;
 }
 
-
 void transform_to_lower(std::string& term) {
     std::transform(term.begin(), term.end(), term.begin(), ::tolower);
 }
@@ -93,18 +92,18 @@ void display_term_document_matrix_with_terms(const std::unordered_map<std::strin
     }
 }
 
-std::vector<std::string> intersect_terms(const std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index, std::vector<std::string> terms) {
-    std::sort(terms.begin(), terms.end(), [&inverted_index](const std::string& term1, const std::string& term2) {
-        return inverted_index.find(term1)->second.size() < inverted_index.find(term2)->second.size();
-    });
+// std::vector<std::string> intersect_terms(const std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index, std::vector<std::string> terms) {
+//     std::sort(terms.begin(), terms.end(), [&inverted_index](const std::string& term1, const std::string& term2) {
+//         return inverted_index.find(term1)->second.size() < inverted_index.find(term2)->second.size();
+//     });
 
-    std::vector<std::string> result(inverted_index.find(terms[0])->second.begin(), inverted_index.find(terms[0])->second.end());
+//     std::vector<std::string> result(inverted_index.find(terms[0])->second.begin(), inverted_index.find(terms[0])->second.end());
 
-    for (int i = 1; i < terms.size() && !result.empty(); i++) {
-        const auto& current_postings = inverted_index.find(terms[i])->second;
-        std::vector<std::string> intersection;
-        std::set_intersection(result.begin(), result.end(), current_postings.begin(), current_postings.end(), std::back_inserter(intersection));
-        result = intersection;
-    }
-    return result;
-}
+//     for (int i = 1; i < terms.size() && !result.empty(); i++) {
+//         const auto& current_postings = inverted_index.find(terms[i])->second;
+//         std::vector<std::string> intersection;
+//         std::set_intersection(result.begin(), result.end(), current_postings.begin(), current_postings.end(), std::back_inserter(intersection));
+//         result = intersection;
+//     }
+//     return result;
+// }

@@ -1,15 +1,15 @@
 #ifndef Inverted_Index
 #define Inverted_Index
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include <vector>
-#include <unordered_map>
+#include <iostream>
 #include <unordered_set>
-#include <algorithm>
+#include <fstream>
 #include <iterator>
-#include <chrono>
+#include <sstream>
+// #include <chrono>
+// #include <unordered_map>
+// #include <algorithm>
 
 void print_header(const std::vector<std::string>& filenames);
 void print_row(const std::string& term, const std::vector<std::string>& documents, const std::unordered_set<std::string>& doc_IDs, std::vector<std::vector<int>>& matrix, int term_index);

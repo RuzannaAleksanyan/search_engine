@@ -1,7 +1,5 @@
 #include "web_crawler.h"
-#include <fstream>
-#include <iostream>
-#include <regex>
+
 
 web_crawler::web_crawler(const std::string& api_endpoint, int num)
     : api_endpoint(api_endpoint), ID(num) {

@@ -1,10 +1,12 @@
 #ifndef WEB_CRAWLER_H
 #define WEB_CRAWLER_H
 
+#include <iostream>
+#include <fstream>
 #include <set>
-#include <string>
-#include <thread>
+#include <regex>
 #include <curl/curl.h>
+#include <thread>
 
 #include "gumbo.h"
 
