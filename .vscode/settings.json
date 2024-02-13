@@ -85,6 +85,7 @@
         "list": "cpp",
         "map": "cpp",
         "unordered_set": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "complex": "cpp"
     }
 }

@@ -7,15 +7,19 @@
 #include <regex>
 #include <curl/curl.h>
 #include <thread>
+#include <condition_variable>
 
 #include "gumbo.h"
 
 class web_crawler {
 private:
-    static const int MAX_DEPTH = 3;
+    static const int MAX_DEPTH = 15;
     std::string api_endpoint;
     int ID;
     std::thread thread;
+    mutable std::mutex mutex;
+    // std::condition_variable cv;  // Condition variable for signaling completion
+    // bool http_request_completed = false;
     std::set<std::string> visited_users;
     std::string inker_content;
 
@@ -36,7 +40,19 @@ private:
     void crawl(const std::string& api_url, int depth, int& crawl_count);
     bool is_same_domain(const std::string& url1, const std::string& url2);
 
-    std::string get_text_content(GumboNode* node);    
+    std::string get_text_content(GumboNode* node); 
+
+    bool is_valid_url(const std::string& url) {
+        // Regular expression for basic URL validation
+        std::regex urlRegex("(https?|ftp)://[^\\s/$.?#].[^\\s]*");
+
+        return std::regex_match(url, urlRegex);
+    }
+
+    size_t redirect_callback(void* contents, size_t size, size_t nmemb, std::string* output);
+
+    bool is_facebook_redirect(const std::string& url);
+
 };
 
 #endif // WEB_CRAWLER_H
