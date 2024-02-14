@@ -82,4 +82,54 @@ std::vector<std::string> get_filenames(const std::string& directory_path, const 
     return filenames;
 }
 
+bool is_valid_word(const std::string& word1, const std::string& word2) {
+    if (word1.empty()) {
+        return false;
+    }
+
+    char lastChar = word2.empty() ? '\0' : word2.back();
+
+    return std::isupper(word1.front()) && (lastChar != '.' && lastChar != ';' && lastChar != '?' && lastChar != '!' && lastChar != ',');
+}
+
+void process_file(const std::vector<std::string>& filenames) {
+    for (const std::string& filename : filenames) {
+        std::ifstream input_file(filename);
+
+        if (!input_file.is_open()) {
+            std::cerr << "Unable to open file: " << filename << std::endl;
+            continue;
+        }
+
+        std::vector<std::string> words;
+        std::string word;
+
+        // Read words from file
+        while (input_file >> word) {
+            words.push_back(word);
+        }
+
+        input_file.close();
+
+        // Filter and write back valid words
+        std::ofstream output_file(filename);
+
+        for (int i = 0; i < words.size(); ++i) {
+            if (i > 0 && is_valid_word(words[i], words[i - 1])) {
+                int size = words[i].size();
+                if (size > 0 && (words[i][size - 1] == '.' || words[i][size - 1] == ',' || words[i][size - 1] == '?' || words[i][size - 1] == ':' || words[i][size - 1] == '!' || words[i][size - 1] == '`')) {
+                    words[i].pop_back();
+                }
+
+                words[i][0] = std::tolower(words[i][0]);
+
+                output_file << words[i] << " ";
+            }
+        }
+
+        output_file.close();
+    }
+}
+
+
 

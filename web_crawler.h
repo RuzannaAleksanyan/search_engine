@@ -13,6 +13,8 @@
 
 class web_crawler {
 private:
+    // static std::function<void(GumboNode*, std::string&)> extractText;
+
     static const int MAX_DEPTH = 15;
     std::string api_endpoint;
     int ID;
