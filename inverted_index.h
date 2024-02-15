@@ -15,6 +15,5 @@ std::unordered_map<std::string, std::unordered_set<std::string>> build_inverted_
 void display_inverted_index_with_string_docIDs(const std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index);
 void display_term_document_matrix_with_terms(const std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index, const std::vector<std::string>& filenames);
 std::vector<std::string> intersect_terms(const std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index, std::vector<std::string> terms);
-void remove_symbols_from_keys(std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index);
 
 #endif

@@ -206,10 +206,10 @@ void web_crawler::crawl(const std::string& api_url, int depth, int& crawl_count)
 
             gumbo_destroy_output(&kGumboDefaultOptions, output);
 
-            int i = 0;  // ...
+            // int i = 0;  // ...
             for (const std::string& link : links) {
-                // ...
-                std::cout << "\033]8;;" << link << "\a" << link << "\033]8;;\a" << " : " << ++i << std::endl;
+                // // ...
+                // std::cout << "\033]8;;" << link << "\a" << link << "\033]8;;\a" << " : " << ++i << std::endl;
 
                 if (crawl_count < 30) {
                     crawl(link, depth + 1, ++crawl_count);

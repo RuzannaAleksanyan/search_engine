@@ -87,5 +87,6 @@
         "unordered_set": "cpp",
         "numeric": "cpp",
         "complex": "cpp"
-    }
+    },
+    "liveServer.settings.port": 5501
 }

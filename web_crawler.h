@@ -20,8 +20,6 @@ private:
     int ID;
     std::thread thread;
     mutable std::mutex mutex;
-    // std::condition_variable cv;  // Condition variable for signaling completion
-    // bool http_request_completed = false;
     std::set<std::string> visited_users;
     std::string inker_content;
 

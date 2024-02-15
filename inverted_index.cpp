@@ -107,21 +107,3 @@ void display_term_document_matrix_with_terms(const std::unordered_map<std::strin
 //     }
 //     return result;
 // }
-
-void remove_symbols_from_keys(std::unordered_map<std::string, std::unordered_set<std::string>>& inverted_index) {
-    const std::string symbolsToRemove = ".,:!?";
-
-    std::unordered_map<std::string, std::unordered_set<std::string>> modified_index;
-
-    for (const auto& pair : inverted_index) {
-        std::string modified_key = pair.first;
-
-        modified_key.erase(std::remove_if(modified_key.begin(), modified_key.end(),
-                            [&symbolsToRemove](char c) { return symbolsToRemove.find(c) != std::string::npos; }),
-                            modified_key.end());
-
-        modified_index[modified_key] = pair.second;
-    }
-
-    inverted_index = std::move(modified_index);
-}
