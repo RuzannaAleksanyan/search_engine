@@ -1,11 +1,46 @@
 #include "search_engine.h"
 
+int start_search_engine(const std::string& searching_key) {
+    std::cout << "% " << searching_key.empty() << " %" << std::endl;
+
+    // std::unordered_map<int, std::set<std::string>> crawlers;
+
+    // std::unordered_map<std::string, std::unordered_set<std::string>> inverted_index = perform_web_crawling_and_indexing(crawlers);
+
+    // std::string searching_key = obtaining_the_desired_word();
+
+    // std::unordered_set<std::string> file_id = inverted_index[searching_key];
+
+    // std::cout << "......................." << std::endl;
+    // std::cout << searching_key << std::endl;
+
+    // // ...
+    // std::cout << "......................" << std::endl;
+    // for(auto crawler : crawlers) {
+    //     for(auto link : crawler.second) {
+    //         std::cout << "\033]8;;" << link << "\a" << link << "\033]8;;\a" << std::endl;
+    //     }
+    // }
+
+    // for(auto crawler : crawlers) {
+    //     for(auto id : file_id) {
+    //         if(crawler.first == std::stoi(id)) {
+    //             for(auto link : crawler.second) {
+    //                 std::cout << "\033]8;;" << link << "\a" << link << "\033]8;;\a" << std::endl;
+    //             }
+    //         }
+    //     }
+    // }
+
+
+    return 0;
+}
+
 std::mutex str_mutex;
+std::string str;
 
 std::string obtaining_the_desired_word() {
     httplib::Server svr;
-
-    std::string str = "";
 
     svr.Get("/extractWords", [&](const httplib::Request& req, httplib::Response& res) {
         res.set_header("Access-Control-Allow-Origin", "*");
@@ -31,22 +66,19 @@ std::string obtaining_the_desired_word() {
             }
         }
 
-        res.set_content(str.c_str(), "application/json");  // Use str.c_str() to get a C-style string
+        res.set_content(str.c_str(), "application/json");
     });
 
     std::thread serverThread([&]() {
-        svr.listen("127.0.0.1", 5501);
+        svr.listen("localhost", 8080);
     });
 
     std::this_thread::sleep_for(std::chrono::seconds(20));
 
-    // Stop the server after 20 seconds
     svr.stop();
 
-    // Join the server thread
     serverThread.join();
 
-    // Lock the mutex before accessing str in the main thread
     std::lock_guard<std::mutex> lock(str_mutex);
 
     return str;
@@ -88,9 +120,7 @@ std::unordered_map<std::string, std::unordered_set<std::string>> perform_web_cra
 void delete_files(const std::string& directory_path, const std::string& file_extension) {
     try {
         for (const auto& entry : std::filesystem::directory_iterator(directory_path)) {
-            // Check if the file has the desired extension
             if (entry.path().extension() == file_extension) {
-                // Delete the file
                 std::filesystem::remove(entry.path());
             }
         }
@@ -137,14 +167,12 @@ void process_file(const std::vector<std::string>& filenames) {
         std::vector<std::string> words;
         std::string word;
 
-        // Read words from file
         while (input_file >> word) {
             words.push_back(word);
         }
 
         input_file.close();
 
-        // Filter and write back valid words
         std::ofstream output_file(filename);
 
         for (int i = 0; i < words.size(); ++i) {

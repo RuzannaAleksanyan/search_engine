@@ -4,20 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String Extraction</title>
-    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h2>String Extraction</h2>
-
-    <!-- <label for="queryString">Enter Query String:</label> -->
-    <input type="text" class="queryString" placeholder="Enter query string">
-    <button class="button">Extract Words</button>
-    <!-- onkeydown="checkEnter(event) -->
-
+    <input type="text" id="queryString" class="queryString" placeholder="Enter query string">
+    <button type="button" id="extractButton" class="button" onclick="extractWords()">Extract Words</button>
     <ul id="outputList"></ul>
-
     <script src="main.js"></script>
 </body>
-
 </html>

@@ -7,6 +7,11 @@
 #include "web_crawler.h"
 #include "inverted_index.h"
 
+extern std::mutex str_mutex;
+extern std::string str;
+
+int start_search_engine(const std::string& searching_key);
+
 std::string obtaining_the_desired_word();
 void delete_files(const std::string& directory_path, const std::string& file_extension);
 std::vector<std::string> get_filenames(const std::string& directory_path, const std::string& file_extension);

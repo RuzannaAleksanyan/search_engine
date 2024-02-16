@@ -1,35 +1,35 @@
-const button = document.querySelector('.button');
+function extractWords() {
+    const queryString = document.getElementById("queryString").value;
 
-const extractWords = () => {
-    const input = document.querySelector('.queryString');
-    const queryString = input.value;
-
-    fetch(`http://127.0.0.1:5501/extractWords?query=${queryString}`)
-    .then(r => {
-        console.log('r: ', r);
-        return r.json();
+    // Make a POST request to the C++ server
+    fetch("http://localhost:3000/extractWords", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: `query=${encodeURIComponent(queryString)}`,
     })
-    .then(d => {
-        console.log('d: ', d);
-    })
-    .catch(e => console.log('Error'));
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response data
+        console.log("Received data from server:", data);
 
-    // const xhr = new XMLHttpRequest();
-    // xhr.open("GET", "http://localhost:8080/extractWords?query=" + queryString, true);
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState == 4) {
-    //         console.log("Response received:", xhr.responseText);
-    //     }
-    // };
-    // xhr.send();
+        // Update the UI or perform other actions
+        // displayResults(data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 }
 
-button.addEventListener("click", () => {
-    extractWords();
-});
+function displayResults(data) {
+    // Update the UI to display the results
+    const outputList = document.getElementById("outputList");
+    outputList.innerHTML = ""; // Clear previous results
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === "Enter") {
-        extractWords();
+    for (const result of data.results) {
+        const listItem = document.createElement("li");
+        listItem.textContent = result;
+        outputList.appendChild(listItem);
     }
-});
+}

@@ -26,14 +26,12 @@ void web_crawler::write_content_to_file(const std::string& filename, const std::
     if (outfile.is_open()) {
         outfile << content;
         outfile.close();
-        // std::cout << "Content written to file: " << filename << std::endl;
     } else {
         std::cerr << "Unable to open file for writing: " << filename << std::endl;
     }
 }
 
 bool web_crawler::is_facebook_redirect(const std::string& url) {
-    // Check if the URL contains "l.facebook.com/l.php?u="
     return url.find("l.facebook.com/l.php?u=") != std::string::npos;
 }
 
@@ -48,8 +46,6 @@ std::set<std::string> web_crawler::extract_links(const std::string& htmlContent)
         std::smatch match = *it;
 
         if (match.size() >= 2) {
-            // std::string link = match[1].str();
-            // links.insert(link);
             std::string link = match[1].str();
             if (is_valid_url(link) && !is_facebook_redirect(link)) {
                 links.insert(link);
@@ -60,7 +56,6 @@ std::set<std::string> web_crawler::extract_links(const std::string& htmlContent)
     return links;
 }
 
-// Callback function for handling redirects
 size_t web_crawler::redirect_callback(void* contents, size_t size, size_t nmemb, std::string* output) {
     size_t totalSize = size * nmemb;
     output->append(reinterpret_cast<char*>(contents), totalSize);
@@ -68,12 +63,10 @@ size_t web_crawler::redirect_callback(void* contents, size_t size, size_t nmemb,
 }
 
 void web_crawler::collect_user_data(const std::string& api_url) {
-    // Check if apiUrl has the same domain as apiEndpoint
     if (!is_same_domain(api_url, api_endpoint)) {
         return;
     }
 
-    // Check if the link has already been visited
     if (visited_users.count(api_url) > 0) {
         return;
     }
@@ -90,7 +83,7 @@ void web_crawler::collect_user_data(const std::string& api_url) {
         CURLcode res = curl_easy_perform(curl);
 
         if (res == CURLE_OK) {
-            std::lock_guard<std::mutex> lock(mutex); // Lock the mutex
+            std::lock_guard<std::mutex> lock(mutex);
 
             visited_users.insert(api_url);
 
@@ -109,7 +102,6 @@ void web_crawler::collect_user_data(const std::string& api_url) {
     }
 }
 
-
 bool web_crawler::is_same_domain(const std::string& url1, const std::string& url2) {
     std::regex domainRegex(R"((https?://([^/]+)))");
     std::smatch match1, match2;
@@ -121,67 +113,12 @@ bool web_crawler::is_same_domain(const std::string& url1, const std::string& url
     return false;
 }
 
-// void web_crawler::crawl(const std::string& api_url, int depth, int& crawl_count) {
-//     if (crawl_count >= 15 || depth > MAX_DEPTH || visited_users.count(api_url) > 0) {
-//         return;
-//     }
-
-//     // Check if the link has already been visited
-//     {
-//         std::lock_guard<std::mutex> lock(mutex); // Lock the mutex
-//         if (visited_users.count(api_url) > 0) {
-//             return;
-//         }
-//         visited_users.insert(api_url); // Mark as visited before crawling
-//     }
-
-//     collect_user_data(api_url);
-
-//     CURL* curl = curl_easy_init();
-//     if (curl) {
-//         curl_easy_setopt(curl, CURLOPT_URL, api_url.c_str());
-//         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-
-//         std::string response_body;
-//         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
-//         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response_body);
-
-//         CURLcode res = curl_easy_perform(curl);
-
-//         if (res == CURLE_OK) {
-//             std::set<std::string> links = extract_links(response_body);
-//             visited_users.insert(api_url);
-
-//             GumboOutput* output = gumbo_parse(response_body.c_str());
-//             std::string text_content = get_text_content(output->root);
-
-//             std::string filename = "page_" + std::to_string(ID) + "_" + std::to_string(visited_users.size()) + ".txt";
-//             write_content_to_file(filename, text_content);
-
-//             gumbo_destroy_output(&kGumboDefaultOptions, output);
-
-//             int i = 0;  // ...
-//             for (const std::string& link : links) {
-//                 // ...
-//                 std::cout << "\033]8;;" << link << "\a" << link << "\033]8;;\a" << " : " << ++i << std::endl;
-
-//                 if (crawl_count < 30) {
-//                     crawl(link, depth + 1, ++crawl_count);
-//                 } else {
-//                     break;
-//                 }
-//             }
-//         }
-//         curl_easy_cleanup(curl);
-//     }
-// }
-
 void web_crawler::crawl(const std::string& api_url, int depth, int& crawl_count) {
     if (crawl_count >= 15 || depth > MAX_DEPTH || visited_users.count(api_url) > 0) {
         return;
     }
 
-    collect_user_data(api_url);  // Collect user data before any decisions
+    collect_user_data(api_url);
 
     CURL* curl = curl_easy_init();
     if (curl) {
@@ -248,23 +185,3 @@ std::string web_crawler::get_text_content(GumboNode* node) {
         return "";
     }
 }
-
-
-// auto web_crawler::extractText = [](GumboNode* node, std::string& textContent) {
-//     if (node->type == GUMBO_NODE_TEXT) {
-//         textContent += node->v.text.text;
-//     }
-
-//     if (node->type != GUMBO_NODE_TEXT && node->type != GUMBO_NODE_WHITESPACE) {
-//         for (size_t i = 0; i < node->v.element.children.length; ++i) {
-//             web_crawler::extractText(static_cast<GumboNode*>(node->v.element.children.data[i]), textContent);
-//         }
-//     }
-// };
-
-// // Function to parse HTML content using Gumbo and extract text content
-// std::string web_crawler::get_text_content(GumboNode* node) {
-//     std::string textContent;
-//     extractText(node, textContent);
-//     return textContent;
-// }
