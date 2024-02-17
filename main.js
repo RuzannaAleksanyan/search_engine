@@ -1,3 +1,27 @@
+// function extractWords() {
+//     const queryString = document.getElementById("queryString").value;
+
+//     // Make a POST request to the C++ server
+//     fetch("http://localhost:3000/extractWords", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: `query=${encodeURIComponent(queryString)}`,
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         // Handle the response data
+//         console.log("Received data from server:", data);
+
+//         // Update the UI or perform other actions
+//         // displayResults(data);
+//     })
+//     .catch(error => {
+//         console.error("Error:", error);
+//     });
+// }
+
 function extractWords() {
     const queryString = document.getElementById("queryString").value;
 
@@ -7,7 +31,7 @@ function extractWords() {
         headers: {
             "Content-Type": "application/json",
         },
-        body: `query=${encodeURIComponent(queryString)}`,
+        body: JSON.stringify({ query: queryString }), // Send the query string as JSON
     })
     .then(response => response.json())
     .then(data => {
@@ -21,6 +45,7 @@ function extractWords() {
         console.error("Error:", error);
     });
 }
+
 
 function displayResults(data) {
     // Update the UI to display the results

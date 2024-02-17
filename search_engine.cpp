@@ -1,7 +1,7 @@
 #include "search_engine.h"
 
 int start_search_engine(const std::string& searching_key) {
-    std::cout << "% " << searching_key.empty() << " %" << std::endl;
+    std::cout << "% " << std::endl;
 
     // std::unordered_map<int, std::set<std::string>> crawlers;
 
