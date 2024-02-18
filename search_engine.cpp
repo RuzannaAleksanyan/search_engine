@@ -1,7 +1,7 @@
 #include "search_engine.h"
 
 int start_search_engine(const std::string& searching_key) {
-    std::cout << "% " << std::endl;
+    std::cout << "line: " << searching_key << std::endl;
 
     // std::unordered_map<int, std::set<std::string>> crawlers;
 
@@ -70,7 +70,7 @@ std::string obtaining_the_desired_word() {
     });
 
     std::thread serverThread([&]() {
-        svr.listen("localhost", 8080);
+        svr.listen("localhost", 3000);
     });
 
     std::this_thread::sleep_for(std::chrono::seconds(20));
@@ -191,6 +191,3 @@ void process_file(const std::vector<std::string>& filenames) {
         output_file.close();
     }
 }
-
-
-
