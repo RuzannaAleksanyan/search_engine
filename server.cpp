@@ -167,8 +167,8 @@ int start_server(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    std::cout << "Server is running on http://0.0.0.0:" << port << std::endl;
-
+    //std::cout << "Server is running on http://0.0.0.0:" << port << std::endl;
+    std::cout << "asdsda";
     while (1) {
         socklen_t clilen = sizeof(client_addr);
         connfd = accept(listenfd, (struct sockaddr*)&client_addr, &clilen);
