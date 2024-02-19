@@ -1,37 +1,10 @@
-#include <iostream>
-#include <cstdlib>
-#include <arpa/inet.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <cstring>
-#include <csignal>
-#include <mutex>
-#include <sstream>
-#include <atomic>
-#include <unordered_map>
-#include <set>
-#include <unordered_set>
-
-#include "web_crawler.h"
-#include "inverted_index.h"
-#include "search_engine.h"
-
-// #include "httplib.h"
-#include <thread>
-// #include <vector>
+#include "server.h"
 
 #define MAX_CLIENTS 100
 #define BUFFER_SIZE 2048
 
 std::atomic<unsigned int> client_count{0};
 int uid = 10;
-
-struct client_t {
-    sockaddr_in address;
-    int sockfd;
-    int uid;
-    char name[32];
-};
 
 client_t *clients[MAX_CLIENTS];
 std::mutex clients_mutex;
@@ -153,7 +126,7 @@ void* handle_client(void *arg) {
     return nullptr;
 }
 
-int main(int argc, char **argv) {
+int start_server(int argc, char **argv) {
     if (argc != 2) {
         std::cout << "Usage: " << argv[0] << " <port>\n";
         return EXIT_FAILURE;

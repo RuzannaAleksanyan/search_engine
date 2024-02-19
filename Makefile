@@ -5,7 +5,7 @@ LIBS = -lcurl -lgumbo
 # Adjust the number based on the available CPU cores
 JOBS = 4
 
-SRC_FILES = inverted_index.cpp server.cpp search_engine.cpp web_crawler.cpp
+SRC_FILES = inverted_index.cpp server.cpp search_engine.cpp web_crawler.cpp main.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 TARGET = search_engine
 
