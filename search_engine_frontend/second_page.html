@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Faust</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faust</title>
+
+  <link rel="stylesheet" href="css/reset.css" />
+
+  <link rel="stylesheet" href="css/pages/second_page.css" />
+
+  <link rel="stylesheet" href="css/components/language-settings.css">
+  <link rel="stylesheet" href="css/components/language-modal.css">
+
+  <link rel="stylesheet" href="css/pages/main_page.css" />
+
+  <link rel="stylesheet" href="css/components/account-modal.css">
+  <link rel="stylesheet" href="css/components/registration-modal.css">
+  <link rel="stylesheet" href="css/components/login-modal.css">
+
+  <link rel="stylesheet" href="css/components/settings-modal.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- Navbar dropdown menu -->
+  <div class="navbar drop-menu">
+    <div class="dropdown">
+      <button class="dropbtn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          width="35">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h26.5M3.75 12h26.5m-16.5 5.25h26.5" />
+        </svg>
+      </button>
+      <div class="dropdown-content">
+        <button class="round-button1" onclick="openSettingsModalSecondPage()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" width="50">
+            <path fill="currentColor"
+              d="M9.18 1h5.64l.647 3.237a8.493 8.493 0 0 1 1.52.88l3.129-1.059l2.82 4.884l-2.481 2.18a8.577 8.577 0 0 1 0 1.756l2.48 2.18l-2.819 4.884l-3.129-1.058a8.497 8.497 0 0 1-1.52.879L14.819 23H9.18l-.647-3.237a8.496 8.496 0 0 1-1.52-.88l-3.129 1.059l-2.82-4.884l2.481-2.18a8.587 8.587 0 0 1 0-1.756l-2.48-2.18l2.82-4.884l3.128 1.058a8.492 8.492 0 0 1 1.52-.879zm1.64 2l-.542 2.705l-.525.193a6.492 6.492 0 0 0-1.912 1.106l-.43.359l-2.615-.885l-1.18 2.044l2.072 1.821l-.095.551a6.55 6.55 0 0 0 0 2.212l.095.55l-2.073 1.822l1.18 2.044l2.616-.885l.43.359a6.52 6.52 0 0 0 1.912 1.106l.525.193L10.82 21h2.36l.542-2.705l.525-.193a6.494 6.494 0 0 0 1.912-1.106l.43-.359l2.616.885l1.18-2.044l-2.072-1.821l.094-.551a6.552 6.552 0 0 0 0-2.212l-.094-.55l2.072-1.822l-1.18-2.044l-2.616.885l-.43-.359a6.49 6.49 0 0 0-1.912-1.106l-.525-.193L13.18 3zM12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5 3a5 5 0 1 1 10 0a5 5 0 0 1-10 0" />
+          </svg>
+        </button>
+        <button class="round-button2" onclick="accountOrLogin()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" width="50">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <path d="M2 21a8 8 0 0 1 13.292-6" />
+              <circle cx="10" cy="8" r="5" />
+              <path d="M19 16v6m3-3h-6" />
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+    <div id="container" class="input-container">
+
+      <div class="logo" onclick="openSearchEnginePage()">
+        <button id="logo-button">
+          <img src="logo.png" alt="Logo">
+        </button>
+      </div>
+
+      <!-- Search input field -->
+      <input type="text" id="second-page-input" placeholder="Մուտքագրեք որոնվող տերմինը..." data-i18n="input.9"/>
+    </div>
+
+  <!-- Button container outside of the navbar -->
+  <div id="button-container">
+    <button class="round-button1" onclick="openSettingsModalSecondPage()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M9.18 1h5.64l.647 3.237a8.493 8.493 0 0 1 1.52.88l3.129-1.059l2.82 4.884l-2.481 2.18a8.577 8.577 0 0 1 0 1.756l2.48 2.18l-2.819 4.884l-3.129-1.058a8.497 8.497 0 0 1-1.52.879L14.819 23H9.18l-.647-3.237a8.496 8.496 0 0 1-1.52-.88l-3.129 1.059l-2.82-4.884l2.481-2.18a8.587 8.587 0 0 1 0-1.756l-2.48-2.18l2.82-4.884l3.128 1.058a8.492 8.492 0 0 1 1.52-.879zm1.64 2l-.542 2.705l-.525.193a6.492 6.492 0 0 0-1.912 1.106l-.43.359l-2.615-.885l-1.18 2.044l2.072 1.821l-.095.551a6.55 6.55 0 0 0 0 2.212l.095.55l-2.073 1.822l1.18 2.044l2.616-.885l.43.359a6.52 6.52 0 0 0 1.912 1.106l.525.193L10.82 21h2.36l.542-2.705l.525-.193a6.494 6.494 0 0 0 1.912-1.106l.43-.359l2.616.885l1.18-2.044l-2.072-1.821l.094-.551a6.552 6.552 0 0 0 0-2.212l-.094-.55l2.072-1.822l-1.18-2.044l-2.616.885l-.43-.359a6.49 6.49 0 0 0-1.912-1.106l-.525-.193L13.18 3zM12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5 3a5 5 0 1 1 10 0a5 5 0 0 1-10 0" />
+      </svg>
+    </button>
+    <button class="round-button2" onclick="accountOrLogin()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+          <path d="M2 21a8 8 0 0 1 13.292-6" />
+          <circle cx="10" cy="8" r="5" />
+          <path d="M19 16v6m3-3h-6" />
+        </g>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Setingss Menu Page Modal -->
+  <div id="settings-modal" class="modal-settings">
+    <div class="modal-content-settings">
+      <ul>
+        <li>
+          <button onclick="openSearchEnginePage()" data-i18n="buttons.0" >
+            <i class="fas fa-search"></i> Որոնողական Համակարգ
+          </button>
+        </li>
+        <li>
+          <button onclick="openHistoryPage()" data-i18n="buttons.1" >
+            <i class="fas fa-history"></i> Պատմություն
+          </button>
+        </li>
+        <li>
+          <button onclick="openPersonalInfoPageModal()" data-i18n="buttons.2" >
+            <i class="fas fa-user"></i> Անձնական տվյալներ
+          </button>
+        </li>
+        <li>
+          <button onclick="openLanguagePageSecondModal()" data-i18n="buttons.12">
+            Լեզուններ
+          </button>
+        </li>
+        <li>
+          <button onclick="changeBackground()" data-i18n="buttons.13">
+            Քարտային ետ
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="login-and-registration-modals" id="modals">
+
+    <!-- Login Page Modal -->
+    <div id="login-page-modal" class="modal-login-page">
+      <div class="modal-content-login-page">
+        <h2 data-i18n="header.1" >
+          Մուտք գործել
+        </h2>
+
+        <div class="input-box">
+          <input type="text" data-i18n="input.1" placeholder="Օգտանուն" required class="input" id="login-username" />
+          <div id="login-username-error" class="error"></div>
+          <div class="icon-container">
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <input type="password" data-i18n="input.2" placeholder="Գաղտնաբառ" required class="input" id="login-pass" />
+          <div id="login-pass-error" class="error"></div>
+          <div class="icon-container">
+            <button onclick="showHide()">
+              <div class="hide" id="hide" style="display: block;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 1024 1024">
+                  <path fill="currentColor"
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512C791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5m-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32M149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512m246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512" />
+                  <path fill="currentColor"
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112" />
+                </svg>
+              </div>
+              <div class="show" id="show" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M12 6.5a9.77 9.77 0 0 1 8.82 5.5c-1.65 3.37-5.02 5.5-8.82 5.5S4.83 15.37 3.18 12A9.77 9.77 0 0 1 12 6.5m0-2C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5m0 5a2.5 2.5 0 0 1 0 5a2.5 2.5 0 0 1 0-5m0-2c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5s4.5-2.02 4.5-4.5s-2.02-4.5-4.5-4.5" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="remember-forgot">
+          <a onclick="openFrogotPassword()" data-i18n="buttons.3" >
+            Մոռացե՞լ եք գաղտնաբառը</a>
+        </div>
+
+        <button type="submit" class="btn" onclick="login()" data-i18n="buttons.4" >
+          Մուտք գործել
+        </button>
+
+        <div class="register-link">
+          <p data-i18n="input.3" >
+            Չունե՞ք էջ
+          </p>
+          <br>
+          <button class="btn" onclick="openRegistrationModal()" data-i18n="buttons.5">
+            Գրանցվել
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Page Modal-->
+    <div id="registration-page-modal" class="modal-registration-page">
+      <div class="modal-content-registration-page">
+        <div class="complex">
+          <button onclick="openLoginModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.78em" height="1em"
+              viewBox="0 0 16 9">
+              <path fill="currentColor" d="M12.5 5h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5" />
+              <path fill="currentColor"
+                d="M6 8.5a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71L5.65.65c.2-.2.51-.2.71 0c.2.2.2.51 0 .71L3.21 4.51l3.15 3.15c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+            </svg>
+          </button>
+          <h2 data-lang='{"arm":"Գրանցում", "en": "Registration", "ru": "Постановка на учет", "ar": "التسجيل",
+            "sq": "Regjistrimi",
+            "az": "Qeydiyyat",
+            "be": "Рэгістрацыя",
+            "de": "Registrierung",
+            "tr": "Kayıt",
+            "sr": "Registro",
+            "it": "Registrazione",
+            "id": "Pendaftaran",
+            "pol": "Rejestracja",
+            "kor": "등록",
+            "kz": "Тіркеу",
+            "hi": "पंजीकरण",
+            "jp": "登録",
+            "es": "Registro",
+            "mn": "Бүртгүүлэх",
+            "dut": "Registratie",
+            "no": "Registrering",
+            "cn": "注册",
+            "pt": "Registro",
+            "sr": "Registracija",
+            "vi": "Đăng ký",
+            "ge": "რეგისტრაცია",
+            "ukr": "Реєстрація",
+            "uz": "Ro&apos;yxatdan o&apos;tish",
+            "kur": "Tîmîn",
+            "fr": "Inscription"}'>
+            Գրանցում
+          </h2>
+          <div></div>
+        </div>
+
+        <div class="input-box">
+          <input type="text" placeholder="Օգտանուն" required class="input" id="username" data-i18n="input.4"/>
+          <div id="username-error" class="error"></div>
+          <div class="icon-container">
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <div id="user-input">
+            <input type="text" onclick="small_larg()" placeholder="Էլ. հասցե" required class="input" id="email" data-i18n="input.5"/>
+            <div id="email-error" class="error"></div>
+          </div>
+          <button>
+            <div class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 36 36">
+                <path fill="currentColor"
+                  d="M32 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-1.54 22H5.66l7-7.24l-1.44-1.39L4 26.84V9.52l12.43 12.37a2 2 0 0 0 2.82 0L32 9.21v17.5l-7.36-7.36l-1.41 1.41ZM5.31 8h25.07L17.84 20.47Z"
+                  class="clr-i-outline clr-i-outline-path-1" />
+                <path fill="none" d="M0 0h36v36H0z" />
+              </svg>
+            </div>
+          </button>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Ստեղծել գաղտնաբառ" required class="input" id="pass" data-i18n="input.6"/>
+              <div id="pass-error" class="error"></div>
+          <div class="showhidepass">
+            <button onclick="showHide()">
+              <div id="showhidepass">Show/Hide</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Կրկնել գաղտնաբառը" required class="input" id="repeat-pass" data-i18n="input.7" />
+              <div id="repeat-pass-error" class="error"></div>
+        </div>
+
+        <button type="submit" class="btn" onclick="register()" data-i18n="input.6">
+          Գրանցվել
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Account Page Modal -->
+  <div id="account-modal" class="modal-account">
+    <div class="modal-content-account">
+      <div class="containerr">
+        <div class="acc-container">
+          <button id="button" class="round-acc-btn" onclick="AddImage()">N</button>
+        </div>
+        <br>
+        <div class="ifo">
+          <h2 id="user-name">
+            Անուն
+          </h2>
+        </div>
+        <br>
+        <div class="info">
+          <h2 id="user-email">
+            Էլ. հասցե
+          </h2>
+        </div>
+      </div>
+
+      <hr class="separator">
+      <br>
+      <br>
+
+      <div class="add-btn">
+        <button class="acc-btn1" onclick="openLoginModal()">
+          <i id="button-id" class="fas fa-plus"></i>
+          <p data-i18n="header.2">
+            Ավելացնել մեկ այլ հաշիվ
+          </p>
+        </button>
+      </div>
+      <br>
+
+      <div class="settings-btn">
+        <button class="acc-btn2" onclick="openSettingsModal()">
+          <i id="button-id" class="fas fa-cog"></i>
+          <p data-i18n="header.3">
+            Կարգավորումներ
+          </p>
+        </button>
+      </div>
+      <br>
+
+      <div class="out-btn">
+        <button class="acc-btn3" onclick="SoignOutAccount()">
+          <i id="buttin-id" class="fas fa-sign-out-alt"></i>
+          <p data-i18n="header.4">
+            Դուրս գալ
+          </p>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Language Page Modal -->
+  <div id="language-page" class="modal-language-page" style="display: none">
+    <div class="modal-content-language-page">
+      <button id="armenian" onclick="changeLanguage('am')" data-i18n="languages.0">
+        🇦🇲 Հայերեն
+      </button>
+      <button onclick="changeLanguage('en')" data-i18n="languages.1">
+        🇬🇧 Անգլերեն
+      </button>
+      <button onclick="changeLanguage('ru')" data-i18n="languages.2">
+        🇷🇺 Ռուսերեն
+      </button>
+      <button onclick="changeLanguage('ar')" data-i18n="languages.3">
+        🇦🇪 Արաբերեն
+      </button>
+      <button onclick="changeLanguage('sq')" data-i18n="languages.4">
+        🇦🇱 Ալբաներեն
+      </button>
+      <button onclick="changeLanguage('az')" data-i18n="languages.5">
+        🇦🇿 Ադրբեջաներեն
+      </button>
+      <button onclick="changeLanguage('be')" data-i18n="languages.6">
+        🇧🇾 Բելառուսերեն
+      </button>
+      <button onclick="changeLanguage('de')" data-i18n="languages.7">
+        🇩🇪 Գերմաներեն
+      </button>
+      <button onclick="changeLanguage('tr')" data-i18n="languages.8">
+        🇹🇷 Թուրքերեն
+      </button>
+      <button onclick="changeLanguage('es')" data-i18n="languages.9">
+        🇪🇸 Իսպաներեն
+      </button>
+      <button onclick="changeLanguage('it')" data-i18n="languages.10">
+        🇮🇹 Իտալերեն
+      </button>
+      <button onclick="changeLanguage('id')" data-i18n="languages.11">
+        🇮🇩 Ինդոնեզերեն
+      </button>
+      <button onclick="changeLanguage('pol')" data-i18n="languages.12">
+        🇵🇱 Լեհերեն
+      </button>
+      <button onclick="changeLanguage('kor')" data-i18n="languages.13">
+        🇰🇷 Կորեերեն
+      </button>
+      <button onclick="changeLanguage('kz')" data-i18n="languages.14">
+        🇰🇿 Ղազախերեն
+      </button>
+      <button onclick="changeLanguage('hi')" data-i18n="languages.15">
+        🇮🇳 Հինդի
+      </button>
+      <button onclick="changeLanguage('jp')" data-i18n="languages.16">
+        🇯🇵 Ճապոներեն
+      </button>
+      <button onclick="changeLanguage('mn')" data-i18n="languages.17">
+        🇲🇳 Մոնղոլերեն
+      </button>
+      <button onclick="changeLanguage('dut')" data-i18n="languages.18">
+        🇳🇱 Հոլանդերեն
+      </button>
+      <button onclick="changeLanguage('no')" data-i18n="languages.19">
+        🇳🇴 Նորվեգերեն
+      </button>
+      <button onclick="changeLanguage('cn')" data-i18n="languages.20">
+        🇨🇳 Չինարեն
+      </button>
+      <button onclick="changeLanguage('pt')" data-i18n="languages.21">
+        🇵🇹 Պորտուգալերեն
+      </button>
+      <button onclick="changeLanguage('sr')" data-i18n="languages.22">
+        🇷🇸 Սերբերեն
+      </button>
+      <button onclick="changeLanguage('vi')" data-i18n="languages.23">
+        🇻🇳 Վիետնամերեն
+      </button>
+      <button onclick="changeLanguage('ge')" data-i18n="languages.24">
+        🇬🇪 Վրացերեն
+      </button>
+      <button onclick="changeLanguage('ukr')" data-i18n="languages.25">
+        🇺🇦 Ուկրաիներեն
+      </button>
+      <button onclick="changeLanguage('uz')" data-i18n="languages.26">
+        🇺🇿 Ուզբեկերեն
+      </button>
+      <button onclick="changeLanguage('kur')" data-i18n="languages.27">
+        🇹🇯 Քրդերեն
+      </button>
+      <button onclick="changeLanguage('fr')" data-i18n="languages.28">
+        🇫🇷 ֆրանսերեն
+      </button>
+    </div>
+  </div>
+  <div class="bodyContainer">
+
+  <div class="url-container" id="url-container">
+    <!-- URLs will be displayed here -->
+</div>
+
+
+  <script src="script/script.js"></script>
+  <script src="script/second-page.js"></script>
+  <script src="script/translation.js"></script>
+  </div>
+</body>
+
+</html>

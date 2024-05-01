@@ -1,0 +1,65 @@
+/* Styles for the shortcut modal */
+
+.modal-shortcut {
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  width: 200px;
+  cursor: move;
+  display: none;
+}
+
+.modal-content-shortcuts {
+  background-color: hsl(var(--muted));
+  padding: 20px 40px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  backdrop-filter: blur(10px);
+}
+
+.modal-content-shortcuts button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.shrt-text {
+  margin-top: -6px;
+  visibility: hidden;
+  display: none;
+  width: 120px;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+
+.shrt-button:hover+.shrt-text {
+  visibility: visible;
+  margin-left: -35px;
+  padding: 1px;
+}
+
+.shrt-button:hover {
+  background-color: rgb(153, 158, 163);
+}

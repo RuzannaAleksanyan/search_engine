@@ -1,0 +1,116 @@
+/* Styles for the account modal */
+.modal-account {
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  width: 300px;
+  display: none;
+
+  cursor: move;
+}
+
+.modal-content-account {
+  background-color: hsl(var(--muted));
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  position: relative;
+
+  backdrop-filter: blur(10px);
+}
+
+/* Styles for user name and email in the account modal */
+.acc-container {
+  justify-content: center;
+  align-items: center;
+  right: 25px;
+}
+
+.info {
+  margin-left: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  cursor: pointer;
+  margin: auto;
+}
+
+#user-name {
+  color: white;
+  align-items: center;
+  margin: 10px;
+  margin-left: -9px;
+}
+
+#user-email {
+  color: white;
+  align-items: center;
+  margin: 5px;
+  margin-left: -15px;
+}
+
+.round-acc-btn {
+  border: none;
+  border-radius: 50%;
+  margin-right: auto;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  margin: auto;
+  background-color: #d1c7c7;
+}
+
+.round-acc-btn:hover {
+  background-color: hsl(var(--accent));
+}
+
+.round-acc-btn img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Styles for account buttons */
+.acc-btn1,
+.acc-btn2,
+.acc-btn3 {
+  text-align: center;
+  border: none;
+  align-items: center;
+}
+
+/* Styles for paragraphs within account buttons */
+.acc-btn1 p,
+.acc-btn2 p,
+.acc-btn3 p {
+  right: 200px;
+  display: inline;
+  padding: 2px 2px 2px 15px;
+}
+
+/* Styles for icons within account buttons */
+.acc-btn1 i,
+.acc-btn2 i,
+.acc-btn3 i {
+  font-size: 20px;
+}
+
+.add-btn,
+.settings-btn,
+.out-btn {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  border-top: 1px solid #ccc;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 20px;
+}

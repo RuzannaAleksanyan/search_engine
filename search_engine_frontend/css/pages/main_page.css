@@ -1,0 +1,296 @@
+/* Global variables */
+:root {
+  --_hue: 280;
+  --bg-image: none;
+
+  /* Light color scheme */
+  --bg--light: var(--_hue) 50% 98%;
+  --txt--light: var(--_hue) 80% 8%;
+  --muted--light: 0, 0%, 71%, 0.5;
+  --accent--light: var(--_hue) 40% 95%;
+  --secondary--light: calc(var(--_hue) - 195) 70% 60%;
+  --border--light: var(--_hue) 80% 8%;
+
+  /* Dark color scheme */
+  /* --bg--dark: var(--_hue) 10% 12%; */
+  --bg--dark: var(--_hue) 70% 19%;
+  --txt--dark: var(--_hue) 80% 99%;
+  --muted--dark: 0, 0%, 71%, 0.5;
+  --accent--dark: var(--_hue) 10% 85%;
+  --secondary--dark: calc(var(--_hue) - 195) 65% 50%;
+  --border--dark: var(--_hue) 80% 99%;
+}
+
+/* Set light mode colors */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--bg--light);
+    --txt: var(--txt--light);
+    --muted: var(--muted--light);
+    --accent: var(--accent--light);
+    --secondary: var(--secondary--light);
+    --border: var(--border--light);
+    color-scheme: light;
+  }
+}
+
+/* Set dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg--dark);
+    --txt: var(--txt--dark);
+    --muted: var(--muted--dark);
+    --accent: var(--accent--dark);
+    --secondary: var(--secondary--dark);
+    --border: var(--border--dark);
+    color-scheme: dark;
+  }
+}
+
+/* Override for light theme */
+:root[data-theme="light"] {
+  --bg: var(--bg--light);
+  --txt: var(--txt--light);
+  --muted: var(--muted--light);
+  --accent: var(--accent--light);
+  --secondary: var(--secondary--light);
+  --border: var(--border--light);
+  color-scheme: light;
+  min-height: 100dvh;
+  background: rgb(247, 243, 248);
+  background: linear-gradient(
+    160deg,
+    rgba(247, 243, 248, 1) 0%,
+    rgba(248, 226, 251, 1) 43%,
+    rgba(241, 199, 231, 1) 63%,
+    rgba(237, 229, 242, 1) 100%
+  );
+}
+
+/* Override for dark theme */
+:root[data-theme="dark"] {
+  --bg: var(--bg--dark);
+  --txt: var(--txt--dark);
+  --muted: var(--muted--dark);
+  --accent: var(--accent--dark);
+  --secondary: var(--secondary--dark);
+  --border: var(--border--dark);
+  color-scheme: dark;
+  min-height: 100dvh;
+  /* background: green; */
+  background: rgb(48, 11, 48);
+  background: linear-gradient(
+    155deg,
+    rgba(48, 11, 48, 1) 53%,
+    rgba(116, 48, 104, 1) 69%,
+    rgba(116, 67, 111, 1) 82%
+  );
+}
+
+/* Global styles */
+* {
+  color: hsl(var(--txt));
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  background: url("/search-engine-frontend/phooto.png");
+  background-size: cover;
+  overflow: hidden;
+}
+.bodyContainer {
+  margin-top: 25px;
+  height: 85dvh;
+  overflow-y: auto;
+}
+
+img{
+  max-width: 18%;
+}
+
+header {
+  text-align: center;
+  margin-top: 70px;
+  color: hsl(var(--txt));
+}
+
+#search-container {
+  text-align: center;
+  background: transparent;
+  margin-top: 50px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+#search-input {
+  padding: 15px 15px 15px 15px;
+  width: 500px;
+  border: 2px solid hsl(var(--border));
+  border-radius: 25px;
+  margin-top: 10px;
+  background: transparent;
+  background-position: 20px center;
+  background-size: 30px;
+  transition: width 0.5s ease;
+}
+
+#search-input:hover {
+  width: 700px;
+}
+
+/* Style for the main buttons */
+#button-container {
+  position: fixed;
+  top: 5%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+.round-button1,
+.round-button2,
+.round-button3,
+.round-button4 {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: hsl(var(--border));
+  border-radius: 50%;
+  color: hsl(var(--txt));
+  line-height: 30px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.drop-menu,
+.drop-menus {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  #button-container {
+    display: none;
+  }
+
+  .drop-menu,
+  .drop-menus {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+/* Navbar styles */
+.navbar a,
+.navbars a {
+  float: left;
+  font-size: 16px;
+  color: hsl(var(--txt));
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown,
+.dropdowns {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn,
+.dropdowns .dropbtns {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: hsl(var(--txt));
+  padding: 0;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: hsla(var(--muted));
+  color: hsl(var(--txt));
+  min-width: 80px;
+  min-height: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content * {
+  float: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media only screen and (max-width: 650px) {
+  #search-input {
+    width: 250px;
+    font-size: 8.3px;
+    text-align: left;
+  }
+
+  #search-input:hover {
+    width: 350px;
+  }
+
+  .modal-login-page {
+    width: 350px;
+    transition: 0.5s;
+  }
+
+  .modal-registration-page {
+    width: 350px;
+    transition: 0.5s;
+  }
+
+  .modal-account {
+    width: 350px;
+  }
+}
+
+#button-and-modal-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333333;
+}
+
+.modal-added-shortcut-page h1 {
+  color: hsl(var(--txt));
+}
+
+
+

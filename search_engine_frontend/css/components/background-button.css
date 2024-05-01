@@ -1,0 +1,29 @@
+/* Styles for the background button modal
+
+#button-and-modal-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333333;
+}
+
+#weather-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 36px;
+  color: hsl(var(--txt));
+  cursor: pointer;
+}
+
+#language-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 36px;
+  color: hsl(var(--txt));
+  cursor: pointer;
+} */

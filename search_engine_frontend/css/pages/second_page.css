@@ -1,0 +1,252 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#logo-button {
+  display: flex;
+  justify-content: center;
+  /* max-width: 50; */
+}
+
+.logo {
+  position: fixed;
+  display: flex;
+  margin-left: -880px;
+  margin-top: 20px;
+}
+
+#logo-button img {
+  width: 25%;
+  height: 100%;
+}
+
+#container {
+  text-align: center;
+  background: transparent;
+  margin-top: 50px;
+  margin-left: -30%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  justify-content: space-evenly;
+  transition: 0.5s;
+}
+
+/* Styles for the input field */
+#second-page-input {
+  transition: 0.5s;
+  padding: 15px 15px 15px 30px;
+  width: 500px;
+  border: 2px solid hsl(var(--txt));
+  border-radius: 25px;
+  margin-top: 10px;
+  background: transparent;
+  background-position: 20px center;
+  background-size: 30px;
+  transition: width 0.5s ease;
+}
+
+#second-page-input:hover {
+  width: 700px;
+}
+
+#button-container {
+  position: fixed;
+  top: 5%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+.drop-menu {
+  display: none;
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 1000px) {
+  #button-container {
+    display: none;
+  }
+
+  .drop-menu {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 0;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: hsl(var(--accent));
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 80px;
+  min-height: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content * {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+  #second-page-input {
+    width: 450px;
+    padding: 15px 15px 15px 30px;
+    transition: 0.5s;
+  }
+
+  #second-page-input:hover {
+    width: 600px;
+  }
+
+  #container {
+    margin-left: -30%;
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  #second-page-input {
+    width: 350px;
+    padding: 15px 15px 15px 30px;
+    transition: 0.5s;
+  }
+
+  #second-page-input:hover {
+    width: 450px;
+  }
+
+  #container {
+    margin-left: -15%;
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #second-page-input {
+    width: 250px;
+    padding: 15px 15px 15px 10px;
+    transition: 0.5s;
+  }
+
+  #second-page-input:hover {
+    width: 350px;
+  }
+
+  #container {
+    margin-left: -15%;
+    transition: 0.5s;
+  }
+}
+
+#url-container {
+  margin-top: 40px;
+  max-width: 43%;
+  margin-left: 8%;
+}
+
+#url-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#url-container li {
+  margin-bottom: 10px;
+  
+}
+
+#url-container a {
+  display: block;
+  text-decoration: none;
+  color: rgb(140, 140, 157);
+  padding: 5px 10px;
+  border: 1px solid rgb(140, 140, 157);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#url-container a:hover {
+  background-color: rgb(140, 140, 157);
+  color: black;
+}
+
+
+/* CSS styles for the search message */
+.search-message {
+  border: 1px solid rgb(140, 140, 157);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-message h2 {
+  color: rgb(140, 140, 157);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.search-message p {
+  color: rgb(140, 140, 157);;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.search-message ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.search-message li {
+  color: rgb(140, 140, 157);;
+  font-size: 16px;
+  margin-bottom: 8px;
+}

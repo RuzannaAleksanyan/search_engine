@@ -1,0 +1,63 @@
+/* Styles for the language modal */
+
+.modal-language-page,
+.modal-language-pages {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  width: 250px;
+  cursor: move;
+  display: none;
+  height: 520px;
+}
+
+.modal-content-language-page,
+.modal-content-language-pages {
+  background-color: hsl(var(--muted));
+  padding: 20px;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  border: 1px solid #888;
+  border-radius: 20px;
+
+  height: 120%;
+}
+
+/* Styles for the language button */
+#language {
+  position: fixed;
+  top: 5%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+#language-icon {
+  background-color: transparent;
+  border: none;
+  font-size: 36px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Styling for language buttons */
+.modal-content-language-page button {
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  font-size: 19px;
+  text-align: left;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 600px) {
+  .modal-content-language-page button {
+    width: 100%;
+  }
+}

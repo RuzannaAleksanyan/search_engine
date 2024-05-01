@@ -1,0 +1,161 @@
+/* Styles for the login modal */
+
+.modal-login-page,
+.modals-login-page {
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  width: 350px;
+  cursor: move;
+
+  display: none;
+  transition: 0.5s;
+}
+
+.modal-content-login-page,
+.modals-content-login-page {
+  background-color: hsl(var(--muted));
+  padding: 20px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+h2 {
+  color: hsl(var(--txt));
+  color: hsl(var(--txt));
+  text-align: center;
+}
+
+/* Importing Google Fonts */
+.input-box {
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+  position: relative;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: none;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 2px solid hsl(var(--border));
+  background: transparent;
+  border-radius: 40px;
+  height: 100%;
+  border-radius: 25px;
+  border: 2px solid hsl(var(--border));
+  outline: none;
+  font-size: 16px;
+  color: hsl(var(--txt));
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: hsl(var(--txt));
+  color: hsl(var(--txt));
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: hsl(var(--txt));
+}
+
+/* Styles for remember me and forgot password section */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+  color: hsl(var(--txt));
+  margin-left: 180px;
+}
+
+.remember-forgot label input {
+  accent-color: hsl(var(--txt));
+  accent-color: hsl(var(--txt));
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: hsl(var(--txt));
+  color: hsl(var(--txt));
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: none;
+  border: 2px solid hsl(var(--border));
+  outline: none;
+  border-radius: 15px;
+  cursor: pointer;
+  color: hsl(var(--txt));
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+/* Styles for login button */
+.btn:hover {
+  background-color: hsl(var(--accent));
+}
+
+.register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link p a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+}
+
+
+.icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.error {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box .error {
+  display: block;
+}

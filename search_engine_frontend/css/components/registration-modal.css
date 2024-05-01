@@ -1,0 +1,45 @@
+/* Styles for the registration modal */
+
+.modal-register-page,
+.modal-registration-page {
+  height: 90%;
+  overflow: hidden;
+  color: hsl(var(--txt));
+  cursor: move;
+  position: absolute;
+  right: 40px;
+  top: 80px;
+  width: 350px;
+
+  display: none;
+  transition: 0.5s;
+}
+
+.modal-content-register-page,
+.modal-content-registration-page {
+  overflow-y: auto;
+
+  background-color: hsl(var(--muted));
+  padding: 20px;
+  border: 1px solid #888;
+  color: hsl(var(--txt));
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-content-register-page.show,
+.modal-content-registration-page.show {
+  right: 0;
+}
+
+.complex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showhidepass {
+  position: absolute;
+  right: 25px;
+  top: 265%;
+}

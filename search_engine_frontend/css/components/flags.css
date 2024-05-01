@@ -1,0 +1,53 @@
+.flags {
+  font-size: 30px;
+}
+
+#arm {
+  margin-top: 214px;
+  margin-left: 509px;
+}
+
+#en {
+  margin-top: -24px;
+  margin-left: 363px;
+}
+
+#ru {
+  margin-top: -90px;
+  margin-left: 434px;
+}
+
+#fr {
+  margin-top: -100px;
+  margin-left: 494px;
+}
+
+#es {
+  margin-top: -44px;
+  margin-left: 570px;
+}
+
+#de {
+  margin-top: -49px;
+  margin-left: 640px;
+}
+
+#it {
+  margin-top: 22px;
+  margin-left: 433px;
+}
+
+#jp {
+  margin-top: -10px;
+  margin-left: 550px;
+}
+
+#cn {
+  margin-top: 38px;
+  margin-left: 783px;
+}
+
+#in {
+  margin-top: -19px;
+  margin-left: 717px;
+}
