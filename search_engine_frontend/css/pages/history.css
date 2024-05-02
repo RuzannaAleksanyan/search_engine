@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background: transparent;
+}
+
+/* Styles for the side navigation */
+.sidenav {
+  height: 30%;
+  width: 245px;
+  position: fixed;
+  z-index: 1;
+  top: 7%;
+  right: 20px;
+  background-color: hsla(var(--muted));
+  ;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 1s;
+  display: none;
+}
+
+#close {
+  position: relative;
+  right: -92%;
+  cursor: pointer;
+}
+
+.sidenav h1 {
+  padding: 6px 8px 6px 16px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+}
+
+.sidenav a:hover {
+  background-color: hsl(var(--accent));
+}
+
+/* Styles for account button */
+.account-button {
+  margin-left: 95%;
+  position: relative;
+  color: rgb(186, 41, 41);
+  cursor: pointer;
+  padding: 20px 20px;
+  font-size: xx-large;
+
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Styles for search input */
+#search {
+  padding: 15px 15px 15px 60px;
+  width: 500px;
+  border: 2px solid #333;
+  border-radius: 25px;
+
+  margin-top: 10px;
+  justify-content: center;
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  background: transparent;
+  background-size: 30px;
+
+  transition: width 0.5s ease;
+}
+
+#search:hover {
+  width: 700px;
+
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 1150px) {
+  #search {
+    width: 400px;
+    transition: 1s;
+  }
+
+  #search:hover {
+    width: 550px;
+  }
+
+  .sidenav {
+    width: 175px;
+    transition: 1s;
+  }
+}
+
+/* Media query for even smaller screens */
+@media only screen and (max-width: 950px) {
+  #search {
+    width: 250px;
+    transition: 1s;
+  }
+
+  #search:hover {
+    width: 400px;
+  }
+
+  .sidenav {
+    width: 142px;
+    transition: 1s;
+  }
+}
+
+#logo-button {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  position: fixed;
+  display: flex;
+  margin-left: -880px;
+  margin-top: 20px;
+}
+
+#logo-button img {
+  width: 25%;
+  height: 100%;
+}

@@ -1,0 +1,126 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+hr {
+    width: 496px;
+    margin-left: -20px;
+    position: absolute;
+}
+
+.save-btn {
+    text-align: center;
+    margin-left: 160px;
+    /* background-color: red; */
+}
+
+.window {
+    width: 500px;
+    height: 550px;
+    background-color: hsla(var(--muted));
+    ;
+    color: hsl(var(--txt));
+    border: 2px solid #333;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.acc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 25px;
+}
+
+.round-btn {
+    text-align: center;
+    background-color: #cfd4d8;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.info-section {
+    display: flex;
+    align-items: center;
+}
+
+.name_p {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.fas,
+#nameUI,
+#emailUI,
+.bxs-trash-alt {
+    padding: 0px 8px;
+    font-size: 16px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.p {
+    margin: 1px;
+    font-size: 16px;
+}
+
+.input-box {
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: none;
+}
+
+.input-box input {
+    outline: none;
+    border: 2px solid hsl(var(--border));
+    background: transparent;
+    border-radius: 25px;
+    border: 2px solid hsl(var(--border));
+    outline: none;
+    font-size: 16px;
+    color: hsl(var(--txt));
+    padding: 20px 45px 20px 20px;
+    background: none;
+}
+
+.input-box input::placeholder {
+    color: hsl(var(--txt));
+    color: hsl(var(--txt));
+}
+
+.icon-container {
+    position: absolute;
+    top: -1px;
+    right: 150px;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
