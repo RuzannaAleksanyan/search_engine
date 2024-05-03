@@ -1,0 +1,86 @@
+/* Styles for the account recovery page */
+
+.account-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(179, 182, 182, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 40%;
+}
+
+.computer-type,
+.time {
+  justify-content: flex-start;
+  margin-top: 40px;
+  text-align: left;
+  margin-left: 170px;
+  display: flex;
+  align-items: center;
+}
+
+.computer-type svg,
+.time svg {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.recover-code {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  color: black;
+  line-height: 60px;
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+
+.email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-acc {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d7ccc8;
+  margin-right: 10px;
+}
+
+.user-email {
+  color: white;
+  font-size: 16px;
+}
+
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.4em;
+  height: 1.4em;
+}
+
+h3 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  color: white;
+}
+
+.details {
+  margin: 10px 0;
+  color: #d7ccc8;
+}
+
+.question {
+  color: white;
+}

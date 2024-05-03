@@ -1,0 +1,87 @@
+.photo {
+    position: fixed;
+    top: 0;
+    left: 5px;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.photo h2 {
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    left: 5px;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.acc-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    background-color: rgb(215, 228, 228);
+    color: black;
+
+    height: 100px;
+    width: 100px;
+
+    border-radius: 50px;
+
+    text-align: center;
+    border: none;
+    align-items: center;
+}
+
+.download-and-delete {
+    padding: 40px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-add-img {
+
+    width: 150px;
+    border-radius: 25px;
+    height: 5px;
+    padding: 15px 15px 15px 15px;
+    border: 2px solid hsl(var(--border));
+    margin-top: 10px;
+    background: transparent;
+    background-position: 20px center;
+    background-size: 30px;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button-add-img button {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+
+    outline: none;
+    border: transparent;
+    cursor: pointer;
+}
+
+.button-add-img:hover
+{
+    background-color: rgb(153, 158, 163);
+
+}
