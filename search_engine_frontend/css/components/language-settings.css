@@ -1,0 +1,11 @@
+/* Styles for the language modal in settings modal*/
+
+.modal-language-page-settings {
+  position: absolute;
+  right: -20px;
+  top: 80px;
+  width: 300px;
+  cursor: move;
+  display: none;
+  height: 520px;
+}

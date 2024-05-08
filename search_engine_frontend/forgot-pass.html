@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Faust</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/pages/main_page.css">
+    <link rel="stylesheet" href="css/pages/forgot-passwd.css">
+
+</head>
+
+<body>
+    <div class="key-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 1024 1024">
+            <path fill="currentColor"
+                d="M224 448a32 32 0 0 0-32 32v384a32 32 0 0 0 32 32h576a32 32 0 0 0 32-32V480a32 32 0 0 0-32-32zm0-64h576a96 96 0 0 1 96 96v384a96 96 0 0 1-96 96H224a96 96 0 0 1-96-96V480a96 96 0 0 1 96-96" />
+            <path fill="currentColor"
+                d="M512 544a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V576a32 32 0 0 1 32-32m192-160v-64a192 192 0 1 0-384 0v64zM512 64a256 256 0 0 1 256 256v128H256V320A256 256 0 0 1 512 64" />
+        </svg>
+        <h2 data-i18n="text.1">    
+            Մոռացել եք Ձեր գաղտնաբառը?
+        </h2>
+        <p data-i18n="text.2">
+            Խնդրում ենք մուտքագրել էլփոստի հասցեն, որին կուղարկվեն գաղտնաբառի վերականգնման տվյալները
+        </p>
+    </div>
+    <br><br>
+
+    <div class="input-and-button">
+        <br><br>
+        <br><br>
+        <br><br>
+        <div class="input-cont">
+            <input type="text" id="link-input" placeholder="Մուտքագրեք էլ․փոստի հասցեն" data-i18n="input.10"/>
+              
+            <div id="forget-error-message" class="error-message"></div>
+        </div>
+        <br>
+
+        <div class="btn-forgot-pass-box" >
+            <button class="btn" class="button-forgot-password" onclick="openSearchEnginePage()" data-i18n="change-pass.5">
+                Չեղարկել
+            </button>
+
+            <button class="btn" class="button-forgot-password" onclick="validateInput()" data-i18n="buttons.14">
+                Շարունակել
+            </button>
+        </div>
+    </div>
+
+    <br><br>
+
+    <script src="script/script.js"></script>
+    <script src="script/translation.js"></script>
+</body>
+
+</html>

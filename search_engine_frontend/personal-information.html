@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Faust</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/reset.css">
+
+  <link rel="stylesheet" href="css/pages/main_page.css" />
+
+  <link rel="stylesheet" href="css/components/settings-modal.css">
+
+  <link rel="stylesheet" href="css/components/login-modal.css">
+  <link rel="stylesheet" href="css/components/registration-modal.css">
+  <link rel="stylesheet" href="css/components/account-modal.css">
+
+  <link rel="stylesheet" href="css/components/language-settings.css">
+  <link rel="stylesheet" href="css/components/language-modal.css">
+
+  <link rel="stylesheet" href="css/pages/personal-information.css">
+
+  <title>CRUD Operations</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-+lw/txdZCWlE8fZkCZZX+E1/W+OJY3ZuEYRtnJ2Qo07R8Pm9rRyCxXKBPxah+NkRjyUbi4VZBVaA+nt8+DjzFw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+  <!-- Button container outside of the navbar -->
+  <div id="button-container">
+    <div class="round-button1" onclick="openSettingsModalPersonalInformationPage()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M9.18 1h5.64l.647 3.237a8.493 8.493 0 0 1 1.52.88l3.129-1.059l2.82 4.884l-2.481 2.18a8.577 8.577 0 0 1 0 1.756l2.48 2.18l-2.819 4.884l-3.129-1.058a8.497 8.497 0 0 1-1.52.879L14.819 23H9.18l-.647-3.237a8.496 8.496 0 0 1-1.52-.88l-3.129 1.059l-2.82-4.884l2.481-2.18a8.587 8.587 0 0 1 0-1.756l-2.48-2.18l2.82-4.884l3.128 1.058a8.492 8.492 0 0 1 1.52-.879zm1.64 2l-.542 2.705l-.525.193a6.492 6.492 0 0 0-1.912 1.106l-.43.359l-2.615-.885l-1.18 2.044l2.072 1.821l-.095.551a6.55 6.55 0 0 0 0 2.212l.095.55l-2.073 1.822l1.18 2.044l2.616-.885l.43.359a6.52 6.52 0 0 0 1.912 1.106l.525.193L10.82 21h2.36l.542-2.705l.525-.193a6.494 6.494 0 0 0 1.912-1.106l.43-.359l2.616.885l1.18-2.044l-2.072-1.821l.094-.551a6.552 6.552 0 0 0 0-2.212l-.094-.55l2.072-1.822l-1.18-2.044l-2.616.885l-.43-.359a6.49 6.49 0 0 0-1.912-1.106l-.525-.193L13.18 3zM12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5 3a5 5 0 1 1 10 0a5 5 0 0 1-10 0" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="logo-PI" onclick="openSearchEnginePage()">
+    <button id="logo-button-PI">
+      <img src="logo.png" alt="Logo">
+    </button>
+  </div>
+
+  <!-- Setingss Menu Page Modal -->
+  <div id="settings-modal" class="modal-settings">
+    <div class="modal-content-settings">
+      <ul>
+        <li>
+          <button onclick="openSearchEnginePage()" data-i18n="buttons.0" >
+            <i class="fas fa-search"></i> Որոնողական Համակարգ
+          </button>
+        </li>
+        <li>
+          <button onclick="openHistoryPage()" data-i18n="buttons.1" >
+            <i class="fas fa-history"></i> Պատմություն
+          </button>
+        </li>
+        <li>
+          <button onclick="openPersonalInfoPageModal()" data-i18n="buttons.2" >
+            <i class="fas fa-user"></i> Անձնական տվյալներ
+          </button>
+        </li>
+        <li>
+          <button onclick="openLanguagePagePersonalInformationModal()" data-i18n="buttons.12">
+            Լեզուններ
+          </button>
+        </li>
+        <li>
+          <button onclick="changeBackground()" data-i18n="buttons.13">
+            Background
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Language Page Modal -->
+  <div id="language-page" class="modal-language-page-settings" style="display: none">
+    <div class="modal-content-language-page">
+      <button id="armenian" onclick="changeLanguage('am')" data-i18n="languages.0">
+        🇦🇲 Հայերեն
+      </button>
+      <button onclick="changeLanguage('en')" data-i18n="languages.1">
+        🇬🇧 Անգլերեն
+      </button>
+      <button onclick="changeLanguage('ru')" data-i18n="languages.2">
+        🇷🇺 Ռուսերեն
+      </button>
+      <button onclick="changeLanguage('ar')" data-i18n="languages.3">
+        🇦🇪 Արաբերեն
+      </button>
+      <button onclick="changeLanguage('sq')" data-i18n="languages.4">
+        🇦🇱 Ալբաներեն
+      </button>
+      <button onclick="changeLanguage('az')" data-i18n="languages.5">
+        🇦🇿 Ադրբեջաներեն
+      </button>
+      <button onclick="changeLanguage('be')" data-i18n="languages.6">
+        🇧🇾 Բելառուսերեն
+      </button>
+      <button onclick="changeLanguage('de')" data-i18n="languages.7">
+        🇩🇪 Գերմաներեն
+      </button>
+      <button onclick="changeLanguage('tr')" data-i18n="languages.8">
+        🇹🇷 Թուրքերեն
+      </button>
+      <button onclick="changeLanguage('es')" data-i18n="languages.9">
+        🇪🇸 Իսպաներեն
+      </button>
+      <button onclick="changeLanguage('it')" data-i18n="languages.10">
+        🇮🇹 Իտալերեն
+      </button>
+      <button onclick="changeLanguage('id')" data-i18n="languages.11">
+        🇮🇩 Ինդոնեզերեն
+      </button>
+      <button onclick="changeLanguage('pol')" data-i18n="languages.12">
+        🇵🇱 Լեհերեն
+      </button>
+      <button onclick="changeLanguage('kor')" data-i18n="languages.13">
+        🇰🇷 Կորեերեն
+      </button>
+      <button onclick="changeLanguage('kz')" data-i18n="languages.14">
+        🇰🇿 Ղազախերեն
+      </button>
+      <button onclick="changeLanguage('hi')" data-i18n="languages.15">
+        🇮🇳 Հինդի
+      </button>
+      <button onclick="changeLanguage('jp')" data-i18n="languages.16">
+        🇯🇵 Ճապոներեն
+      </button>
+      <button onclick="changeLanguage('mn')" data-i18n="languages.17">
+        🇲🇳 Մոնղոլերեն
+      </button>
+      <button onclick="changeLanguage('dut')" data-i18n="languages.18">
+        🇳🇱 Հոլանդերեն
+      </button>
+      <button onclick="changeLanguage('no')" data-i18n="languages.19">
+        🇳🇴 Նորվեգերեն
+      </button>
+      <button onclick="changeLanguage('cn')" data-i18n="languages.20">
+        🇨🇳 Չինարեն
+      </button>
+      <button onclick="changeLanguage('pt')" data-i18n="languages.21">
+        🇵🇹 Պորտուգալերեն
+      </button>
+      <button onclick="changeLanguage('sr')" data-i18n="languages.22">
+        🇷🇸 Սերբերեն
+      </button>
+      <button onclick="changeLanguage('vi')" data-i18n="languages.23">
+        🇻🇳 Վիետնամերեն
+      </button>
+      <button onclick="changeLanguage('ge')" data-i18n="languages.24">
+        🇬🇪 Վրացերեն
+      </button>
+      <button onclick="changeLanguage('ukr')" data-i18n="languages.25">
+        🇺🇦 Ուկրաիներեն
+      </button>
+      <button onclick="changeLanguage('uz')" data-i18n="languages.26">
+        🇺🇿 Ուզբեկերեն
+      </button>
+      <button onclick="changeLanguage('kur')" data-i18n="languages.27">
+        🇹🇯 Քրդերեն
+      </button>
+      <button onclick="changeLanguage('fr')" data-i18n="languages.28">
+        🇫🇷 ֆրանսերեն
+      </button>
+    </div>
+  </div>
+
+  <script src="script/script.js"></script>
+  <script src="script/personal-information.js"></script>
+  <script src="script/translation.js"></script>
+</body>
+
+</html>

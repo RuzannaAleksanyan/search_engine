@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/pages/main_page.css" />
+  <link rel="stylesheet" href="css/pages/change-pass.css" />
+
+  <title>Faust</title>
+</head>
+
+<body>
+  <div class="modal-content-change-password-page">
+    <h2 data-i18n="change-pass.0">Փոխել գաղտնաբառը</h2>
+    <br /><br /><br />
+
+    <div class="input-container">
+      <div class="input-box-icon">
+        <input type="text" id="email-code-input" placeholder="Էլփոստի կոդը" data-i18n="change-pass.1" />
+        <div id="email-code-error-message" class="error-message"></div>
+      </div>
+
+      <div class="input-box-icon">
+        <input type="text" id="new-password-input" placeholder="Նոր գաղտնաբառ" data-i18n="change-pass.2" />
+        <div id="new-password-error-message" class="error-message"></div>
+      </div>
+
+      <div class="input-box-icon">
+        <input type="text" id="confirm-password-input" placeholder="Նորից մուտքագրեք նոր գաղտնաբառը"
+          data-i18n="change-pass.3" />
+        <div id="confirm-password-error-message" class="error-message"></div>
+      </div>
+
+      <div class="input-box-icon">
+        <input type="text" id="confirm-password-input" placeholder="Պահպանեք փոփոխությունը" data-i18n="change-pass.4" />
+        <div id="confirm-password-error-message" class="error-message"></div>
+      </div>
+      <br /><br />
+      <div class="cont-box">
+        <button onclick="openFrogotPassword()" class="input-box-ico" data-i18n="change-pass.5">
+          Չեղարկել
+        </button>
+
+        <button onclick="SaveChanges()" class="input-box-ico" data-i18n="buttons.11">
+          Պահպանել
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script/script.js"></script>
+  <script src="script/change-pass.js"></script>
+</body>
+
+</html>
