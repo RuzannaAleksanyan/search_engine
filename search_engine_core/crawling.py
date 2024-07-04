@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup, SoupStrainer
 from pymongo import MongoClient 
 from nltk.tokenize import RegexpTokenizer
 #
-import hashlib 
+# import hashlib 
 #
 import pymongo
 import langid
@@ -12,7 +12,7 @@ import asyncio
 import re 
 
 #
-import os
+# import os
 #
 
 tokenizer = RegexpTokenizer(r'\w+|$[0-9.]+') 
@@ -32,11 +32,11 @@ async def crawling():
                 response.raise_for_status()  # Raise an exception for HTTP errors
 
                 #
-                cached_content = load_cached_content(current_url)
-                if cached_content:
-                    visited_urls.add(current_url)
-                    depth_limit -= 1
-                    continue
+                # cached_content = load_cached_content(current_url)
+                # if cached_content:
+                #     visited_urls.add(current_url)
+                #     depth_limit -= 1
+                #     continue
                 #
 
                 my_parser = BeautifulSoup(response.content, "html.parser") # To parse the HTML content
@@ -95,26 +95,26 @@ def save_to_mongodb(data):
 
 
 #
-def load_cached_content(url):
-    cache_folder = 'cache'
-    os.makedirs(cache_folder, exist_ok=True)
-    cache_file = os.path.join(cache_folder, hashlib.md5(url.encode()).hexdigest())
+# def load_cached_content(url):
+#     cache_folder = 'cache'
+#     os.makedirs(cache_folder, exist_ok=True)
+#     cache_file = os.path.join(cache_folder, hashlib.md5(url.encode()).hexdigest())
 
-    if os.path.exists(cache_file):
-        with open(cache_file, 'r') as f:
-            return f.read()
+#     if os.path.exists(cache_file):
+#         with open(cache_file, 'r') as f:
+#             return f.read()
 
-    return None
+#     return None
 #
 
 #
-def cache_content(url, content):
-    cache_folder = 'cache'
-    os.makedirs(cache_folder, exist_ok=True)
-    cache_file = os.path.join(cache_folder, hashlib.md5(url.encode()).hexdigest())
+# def cache_content(url, content):
+#     cache_folder = 'cache'
+#     os.makedirs(cache_folder, exist_ok=True)
+#     cache_file = os.path.join(cache_folder, hashlib.md5(url.encode()).hexdigest())
 
-    with open(cache_file, 'w') as f:
-        f.write(content)
+#     with open(cache_file, 'w') as f:
+#         f.write(content)
 #
 
 
@@ -127,7 +127,7 @@ async def main():
         if content:
             data.append({"url": url, "content": content, "language": lang})
             #
-            cache_content(url, '\n'.join(content))
+            # cache_content(url, '\n'.join(content))
             #
     save_to_mongodb(data)
     print("Data saved to MongoDB successfully.")
